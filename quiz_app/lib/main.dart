@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import './question.dart';
+import './answer.dart';
 
 main() => runApp(Questions());
 
@@ -13,7 +14,6 @@ class _QuestionState extends State<Questions> {
     setState(() {
       _questionsSelected++;
     });
-    print(_questionsSelected);
   }
 
   @override
@@ -32,18 +32,11 @@ class _QuestionState extends State<Questions> {
         body: Column(
           children: [
             Question(questions[_questionsSelected]),
-            RaisedButton(
-              child: Text('Resposta 1'),
-              onPressed: _answer,
-            ),
-            RaisedButton(
-              child: Text('Resposta 2'),
-              onPressed: _answer,
-            ),
-            RaisedButton(
-              child: Text('Resposta 3'),
-              onPressed: _answer,
-            ),
+
+            // Passando a função como parâmetro para a resposta:
+            Answer('Resposta1', _answer),
+            Answer('Resposta2', _answer),
+            Answer('Resposta3', _answer),
           ],
         ),
       ),
