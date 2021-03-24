@@ -19,9 +19,34 @@ class _QuestionState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     // Definindo a Lista de Perguntas a Serem usadas
-    final List<String> questions = [
-      'Qual seu peso médio?',
-      'Qual seu o sua altura?',
+    final List<Map<String, Object>> questions = [
+      {
+        'text': 'Qual seu peso médio?',
+        'answers': [
+          'Menor que 40kg',
+          'Entre 40kg e 60kg',
+          'Entre 60kg e 80kg',
+          'Acima de 90kg'
+        ],
+      },
+      {
+        'text': 'Qual seu o sua altura?',
+        'answers': [
+          'Menor que 1,45m',
+          'Entre 1,45m e 1,65',
+          'Entre 1,65 e 1,80',
+          'Acima de 1,80'
+        ]
+      },
+      {
+        'text': 'qual sua regularidade com exercícios fisicos?',
+        'answers': [
+          'Sedentário',
+          'Baixa (Menor 2x por semana)',
+          'Regular (3x por semana)',
+          'Alta (Rotina semanal de exercícios'
+        ]
+      },
     ];
 
     return MaterialApp(
@@ -31,7 +56,7 @@ class _QuestionState extends State<Questions> {
         ),
         body: Column(
           children: [
-            Question(questions[_questionsSelected]),
+            Question(questions[_questionsSelected]['text']),
 
             // Passando a função como parâmetro para a resposta:
             Answer('Resposta1', _answer),
