@@ -60,10 +60,6 @@ class _QuestionState extends State<Questions> {
     List<String> listAnswers =
         hasQuestionsSelected ? _questions[_questionsSelected]['answers'] : null;
 
-    // Criando uma Lista de Widgets contendo as respostas?
-    List<Widget> widgetsAnswers =
-        listAnswers.map((text) => Answer(text, _answer)).toList();
-
     // Função para percorrer as respostas
     // for (String textAnswer in listAnswers) {
     //   answers.add(Answer(textAnswer, _answer));
@@ -80,7 +76,7 @@ class _QuestionState extends State<Questions> {
                   Question(_questions[_questionsSelected]['text']),
 
                   // Argumento para que todos os elementos da lista sejam passados:
-                  ...widgetsAnswers,
+                  ...listAnswers.map((text) => Answer(text, _answer)).toList(),
                 ],
               )
             : null,
