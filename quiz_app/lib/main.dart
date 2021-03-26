@@ -49,6 +49,14 @@ class _QuestionState extends State<Questions> {
       },
     ];
 
+    // Criando uma Lista de Widgets contendo as respostas?
+    List<Widget> answers = [];
+
+    // Função para percorrer as respostas
+    for (String textAnswer in questions[_questionsSelected]['answers']) {
+      answers.add(Answer(textAnswer, _answer));
+    }
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -58,10 +66,8 @@ class _QuestionState extends State<Questions> {
           children: [
             Question(questions[_questionsSelected]['text']),
 
-            // Passando a função como parâmetro para a resposta:
-            Answer('Resposta1', _answer),
-            Answer('Resposta2', _answer),
-            Answer('Resposta3', _answer),
+            // Argumento para que todos os elementos da lista sejam passados:
+            ...answers,
           ],
         ),
       ),
