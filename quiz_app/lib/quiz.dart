@@ -21,7 +21,7 @@ class Quiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Criando uma Lista para receber as respostas?
-    List<String> listAnswers =
+    List<Map<String, Object>> listAnswers =
         hasQuestionsSelected ? questions[questionsSelected]['answers'] : null;
 
     return Column(
@@ -29,7 +29,7 @@ class Quiz extends StatelessWidget {
         Question(questions[questionsSelected]['text']),
 
         // Argumento para que todos os elementos da lista sejam passados:
-        ...listAnswers.map((text) => Answer(text, answer)).toList(),
+        ...listAnswers.map((r) => Answer(r['txt'], answer)).toList(),
       ],
     );
   }
