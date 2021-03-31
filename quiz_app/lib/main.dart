@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import './question.dart';
-import './answer.dart';
 import './quiz.dart';
 import './result.dart';
 
@@ -13,28 +11,28 @@ class _QuestionState extends State<Questions> {
     {
       'text': 'Qual seu peso médio?',
       'answers': [
-        'Menor que 40kg',
-        'Entre 40kg e 60kg',
-        'Entre 60kg e 80kg',
-        'Acima de 90kg'
+        {'txt': 'Menor que 40kg', 'nota': 5},
+        {'txt': 'Entre 40kg e 60kg', 'nota': 15},
+        {'txt': 'Entre 60kg e 80kg', 'nota': 20},
+        {'txt': 'Acima de 90kg', 'nota': 10},
       ],
     },
     {
       'text': 'Qual seu o sua altura?',
       'answers': [
-        'Menor que 1,45m',
-        'Entre 1,45m e 1,65',
-        'Entre 1,65 e 1,80',
-        'Acima de 1,80'
+        {'txt': 'Menor que 1,45m', 'nota': 5},
+        {'txt': 'Entre 1,45m e 1,65', 'nota': 10},
+        {'txt': 'Entre 1,65 e 1,80', 'nota': 15},
+        {'txt': 'Acima de 1,80', 'nota': 20},
       ]
     },
     {
       'text': 'qual sua regularidade com exercícios fisicos?',
       'answers': [
-        'Sedentário',
-        'Baixa (Menor 2x por semana)',
-        'Regular (3x por semana)',
-        'Alta (Rotina semanal de exercícios'
+        {'txt': 'Sedentário', 'nota': 5},
+        {'txt': 'Baixa (Menor 2x por semana)', 'nota': 10},
+        {'txt': 'Regular (3x por semana)', 'nota': 15},
+        {'txt': 'Alta (Rotina semanal de exercícios', 'nota': 20},
       ]
     },
   ];
