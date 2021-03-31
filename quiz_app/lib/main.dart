@@ -2,22 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import './question.dart';
 import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 main() => runApp(Questions());
 
 class _QuestionState extends State<Questions> {
-  // Declarando uma variáel:
-  var _questionsSelected = 0;
-
-  // Definindo uma Função de conclusão para pergunta
-  void _answer() {
-    if (hasQuestionsSelected) {
-      setState(() {
-        _questionsSelected++;
-      });
-    }
-  }
-
   // Definindo a Lista de Perguntas a Serem usadas
   final List<Map<String, Object>> _questions = const [
     {
@@ -54,12 +44,20 @@ class _QuestionState extends State<Questions> {
     return _questionsSelected < _questions.length;
   }
 
+  // Declarando uma variáel:
+  var _questionsSelected = 0;
+
+  // Definindo uma Função de conclusão para pergunta
+  void _answer() {
+    if (hasQuestionsSelected) {
+      setState(() {
+        _questionsSelected++;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Criando uma Lista para receber as respostas?
-    List<String> listAnswers =
-        hasQuestionsSelected ? _questions[_questionsSelected]['answers'] : null;
-
     // Função para percorrer as respostas
     // for (String textAnswer in listAnswers) {
     //   answers.add(Answer(textAnswer, _answer));
@@ -71,22 +69,11 @@ class _QuestionState extends State<Questions> {
           title: Text('Questions'),
         ),
         body: hasQuestionsSelected
-            ? Column(
-                children: [
-                  Question(_questions[_questionsSelected]['text']),
-
-                  // Argumento para que todos os elementos da lista sejam passados:
-                  ...listAnswers.map((text) => Answer(text, _answer)).toList(),
-                ],
-              )
-            : Center(
-                child: Text(
-                  'Informações cadastradas',
-                  style: TextStyle(
-                    fontSize: 28,
-                  ),
-                ),
-              ),
+            ? Quiz(
+                questionsSelected: _questionsSelected,
+                questions: _questions,
+                answer: _answer)
+            : Results(),
       ),
     );
   }
