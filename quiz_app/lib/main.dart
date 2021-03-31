@@ -79,7 +79,14 @@ class _QuestionState extends State<Questions> {
                   ...listAnswers.map((text) => Answer(text, _answer)).toList(),
                 ],
               )
-            : null,
+            : Center(
+                child: Text(
+                  'Informações cadastradas',
+                  style: TextStyle(
+                    fontSize: 28,
+                  ),
+                ),
+              ),
       ),
     );
   }
